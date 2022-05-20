@@ -1,0 +1,68 @@
+version: '3.8'
+
+services:
+  kafdrop:
+    image: obsidiandynamics/kafdrop
+    ports:
+      - "9000:9000"
+    depends_on:
+      - redpanda
+    env_file:
+      - ".env"
+    networks:
+      - nesjs-network
+
+  redpanda:
+    image: docker.vectorized.io/vectorized/redpanda:v21.11.3
+    networks:
+      - nesjs-network
+    command:
+      - redpanda
+      - start
+      - --smp
+      - '1'
+      - --reserve-memory
+      - 0M
+      - --overprovisioned
+      - --node-id
+      - '0'
+      - --kafka-addr
+      - PLAINTEXT://0.0.0.0:29092,OUTSIDE://0.0.0.0:9092
+      - --advertise-kafka-addr
+      - PLAINTEXT://redpanda:29092,OUTSIDE://redpanda:9092
+      - --default-log-level
+      - warn
+
+  api:
+    container_name: nestjs_api_dev
+    image: nestjs-api-dev:1.0.0
+    build: ./api
+    ports:
+      - 3030:3030
+      - 9229:9229
+    depends_on:
+      - redpanda
+    env_file:
+      - "./api/.env"
+    networks:
+      - nesjs-network
+    volumes:
+      - ./api:/usr/src/api
+      - /usr/src/api/node_modules
+
+  emails:
+    container_name: nestjs_emails_dev
+    image: nestjs-emails-dev:1.0.0
+    build: ./emails
+    depends_on:
+      - redpanda
+    env_file:
+      - "./emails/.env"
+    networks:
+      - nesjs-network
+    volumes:
+      - ./emails:/usr/src/emails
+      - /usr/src/emails/node_modules
+
+networks:
+    nesjs-network:

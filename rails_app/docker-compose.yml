@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  kafdrop:
+    image: obsidiandynamics/kafdrop
+    networks:
+      - redpanda-network
+    ports:
+      - "9000:9000"
+    depends_on:
+      - redpanda
+    env_file:
+      - ".env"
+
+  redpanda:
+    image: docker.vectorized.io/vectorized/redpanda:v21.11.3
+    networks:
+      - redpanda-network
+    command:
+      - redpanda
+      - start
+      - --smp
+      - '1'
+      - --reserve-memory
+      - 0M
+      - --overprovisioned
+      - --node-id
+      - '0'
+      - --kafka-addr
+      - PLAINTEXT://0.0.0.0:29092,OUTSIDE://0.0.0.0:9092
+      - --advertise-kafka-addr
+      - PLAINTEXT://redpanda:29092,OUTSIDE://redpanda:9092
+      - --default-log-level
+      - warn
+
+  api:
+    build: .
+    networks:
+      - redpanda-network
+    volumes:
+      - ".:/app"
+    ports:
+      - "3000:3000"
+      - "9394:9394"
+    depends_on:
+      - redpanda
+    env_file:
+      - ".env"
+
+networks:
+    redpanda-network:
+      driver: bridge

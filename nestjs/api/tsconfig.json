@@ -16,6 +16,14 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      "@dto": ["src/dto"],
+      "@dto/*": ["src/dto/*"],
+      "@services": ["src/services"],
+      "@services/*": ["src/services/*"],
+      "@implementations/*": ["src/implementations/*"],
+      "@providers/*": ["src/implementations/providers/*"],
+    }
   }
 }

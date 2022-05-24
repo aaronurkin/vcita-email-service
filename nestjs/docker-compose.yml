@@ -33,6 +33,32 @@ services:
       - --default-log-level
       - warn
 
+  postgres:
+    container_name: postgres
+    image: postgres:11-alpine
+    ports:
+      - "5432:5432"
+    env_file:
+      - ".env"
+    networks:
+      - db-network
+ 
+  pgadmin:
+    links:
+      - postgres:postgres
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    ports:
+      - "8080:80"
+    volumes:
+      - ./tmp/storage/pgadmin:/root/.pgadmin
+    depends_on:
+      - postgres
+    env_file:
+      - ".env"
+    networks:
+      - db-network
+
   api:
     container_name: nestjs_api_dev
     image: nestjs-api-dev:1.0.0
@@ -56,13 +82,17 @@ services:
     build: ./emails
     depends_on:
       - redpanda
+      - db-network
     env_file:
       - "./emails/.env"
     networks:
       - nesjs-network
+      - db-network
     volumes:
       - ./emails:/usr/src/emails
       - /usr/src/emails/node_modules
 
 networks:
     nesjs-network:
+    db-network:
+      driver: bridge

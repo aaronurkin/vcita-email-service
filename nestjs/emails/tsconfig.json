@@ -20,8 +20,11 @@
     "paths": {
       "@dto": ["src/dto"],
       "@dto/*": ["src/dto/*"],
+      "@configs": ["src/configs"],
       "@services": ["src/services"],
+      "@configs/*": ["src/configs/*"],
       "@services/*": ["src/services/*"],
+      "@data-access/*": ["src/data-access/*"],
       "@implementations/*": ["src/implementations/*"],
       "@providers/*": ["src/implementations/providers/*"],
     }

@@ -15,13 +15,8 @@ class EmailsController < ApplicationController
 
   # POST /emails
   def create
-    @email = Email.new(email_params)
-
-    if @email.save
-      render json: @email, status: :created, location: @email
-    else
-      render json: @email.errors, status: :unprocessable_entity
-    end
+    CreateEmailRequestedJob.perform_later(email_params.to_json)
+    render status: :ok
   end
 
   # PATCH/PUT /emails/1

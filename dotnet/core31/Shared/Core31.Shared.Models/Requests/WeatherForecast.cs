@@ -1,6 +1,6 @@
-using System;
+﻿using System;
 
-namespace Core31.Gateway.Api
+namespace Core31.Shared.Models.Requests
 {
     public class WeatherForecast
     {

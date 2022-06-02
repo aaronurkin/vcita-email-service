@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core31.Gateway.Api", "Core3
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{3895A29B-C187-4ED4-A891-4CEEED693DD2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{BA1C43E8-37A0-4E5B-A235-FC9649C625DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core31.Shared.Models", "Shared\Core31.Shared.Models\Core31.Shared.Models.csproj", "{745B7B98-AD83-4379-B3DF-4D4167137573}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,9 +25,16 @@ Global
 		{3895A29B-C187-4ED4-A891-4CEEED693DD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3895A29B-C187-4ED4-A891-4CEEED693DD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3895A29B-C187-4ED4-A891-4CEEED693DD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{745B7B98-AD83-4379-B3DF-4D4167137573}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{745B7B98-AD83-4379-B3DF-4D4167137573}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{745B7B98-AD83-4379-B3DF-4D4167137573}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{745B7B98-AD83-4379-B3DF-4D4167137573}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{745B7B98-AD83-4379-B3DF-4D4167137573} = {BA1C43E8-37A0-4E5B-A235-FC9649C625DA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {151B0528-B80F-4FA7-AC74-E5934A986340}

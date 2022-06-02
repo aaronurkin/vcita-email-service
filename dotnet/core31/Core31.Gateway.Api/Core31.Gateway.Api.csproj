@@ -11,5 +11,9 @@
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.15.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Shared\Core31.Shared.Models\Core31.Shared.Models.csproj" />
+  </ItemGroup>
+
 
 </Project>

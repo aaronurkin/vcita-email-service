@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Core31.Consumers.CreateEmail": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

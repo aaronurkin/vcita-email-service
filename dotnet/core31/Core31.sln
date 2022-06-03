@@ -3,13 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32519.379
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core31.Gateway.Api", "Core31.Gateway.Api\Core31.Gateway.Api.csproj", "{55F2FCCF-8D1E-4CD7-B906-F9CDB3F3BDB3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core31.Gateway.Api", "Core31.Gateway.Api\Core31.Gateway.Api.csproj", "{55F2FCCF-8D1E-4CD7-B906-F9CDB3F3BDB3}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{3895A29B-C187-4ED4-A891-4CEEED693DD2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{BA1C43E8-37A0-4E5B-A235-FC9649C625DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core31.Shared.Models", "Shared\Core31.Shared.Models\Core31.Shared.Models.csproj", "{745B7B98-AD83-4379-B3DF-4D4167137573}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core31.Shared.Models", "Shared\Core31.Shared.Models\Core31.Shared.Models.csproj", "{745B7B98-AD83-4379-B3DF-4D4167137573}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Consumers", "Consumers", "{86746475-075E-47FF-BB3C-582DFB691A7D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Emails", "Emails", "{589EF549-1A84-46C3-AFDE-7926EF2AEC60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core31.Consumers.CreateEmail", "Consumers\Emails\Core31.Consumers.CreateEmail\Core31.Consumers.CreateEmail.csproj", "{ADF216B2-AA16-48BD-B568-70056532877F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core31.Consumers.CreateEmail.Data", "Consumers\Emails\Core31.Consumers.CreateEmail.Data\Core31.Consumers.CreateEmail.Data.csproj", "{BEA09209-B370-418E-84C5-8832632DC835}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,12 +37,23 @@ Global
 		{745B7B98-AD83-4379-B3DF-4D4167137573}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{745B7B98-AD83-4379-B3DF-4D4167137573}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{745B7B98-AD83-4379-B3DF-4D4167137573}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADF216B2-AA16-48BD-B568-70056532877F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADF216B2-AA16-48BD-B568-70056532877F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADF216B2-AA16-48BD-B568-70056532877F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADF216B2-AA16-48BD-B568-70056532877F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEA09209-B370-418E-84C5-8832632DC835}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEA09209-B370-418E-84C5-8832632DC835}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEA09209-B370-418E-84C5-8832632DC835}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEA09209-B370-418E-84C5-8832632DC835}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{745B7B98-AD83-4379-B3DF-4D4167137573} = {BA1C43E8-37A0-4E5B-A235-FC9649C625DA}
+		{589EF549-1A84-46C3-AFDE-7926EF2AEC60} = {86746475-075E-47FF-BB3C-582DFB691A7D}
+		{ADF216B2-AA16-48BD-B568-70056532877F} = {589EF549-1A84-46C3-AFDE-7926EF2AEC60}
+		{BEA09209-B370-418E-84C5-8832632DC835} = {589EF549-1A84-46C3-AFDE-7926EF2AEC60}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {151B0528-B80F-4FA7-AC74-E5934A986340}

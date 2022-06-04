@@ -1,6 +1,42 @@
 version: '3.4'
 
 services:
+  kafdrop:
+    container_name: kafka-ui
+    image: obsidiandynamics/kafdrop
+    ports:
+      - "9000:9000"
+    depends_on:
+      - redpanda
+    env_file:
+      - ".env"
+    networks:
+      - redpanda-network
+
+  redpanda:
+    container_name: kafka-broker
+    image: docker.vectorized.io/vectorized/redpanda:v21.11.3
+    networks:
+      - redpanda-network
+    volumes:
+      - ./tmp/storage/redpanda:/var/lib/redpanda/data
+    command:
+      - redpanda
+      - start
+      - --smp
+      - '1'
+      - --reserve-memory
+      - 0M
+      - --overprovisioned
+      - --node-id
+      - '0'
+      - --kafka-addr
+      - PLAINTEXT://0.0.0.0:29092,OUTSIDE://0.0.0.0:9092
+      - --advertise-kafka-addr
+      - PLAINTEXT://redpanda:29092,OUTSIDE://redpanda:9092
+      - --default-log-level
+      - warn
+
   core31.gateway.api:
     container_name: gateway.api
     image: gateway.api:core3.1
@@ -18,3 +54,6 @@ services:
       context: .
       dockerfile: Consumers/Emails/Core31.Consumers.CreateEmail/Dockerfile
 
+networks:
+  redpanda-network:
+      driver: bridge

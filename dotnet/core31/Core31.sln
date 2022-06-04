@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core31.Consumers.CreateEmai
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core31.Consumers.CreateEmail.Data", "Consumers\Emails\Core31.Consumers.CreateEmail.Data\Core31.Consumers.CreateEmail.Data.csproj", "{BEA09209-B370-418E-84C5-8832632DC835}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core31.Shared.Services", "Shared\Core31.Shared.Services\Core31.Shared.Services.csproj", "{CDA484F2-F245-4D81-A9C2-27C02D0FC76E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{BEA09209-B370-418E-84C5-8832632DC835}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEA09209-B370-418E-84C5-8832632DC835}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BEA09209-B370-418E-84C5-8832632DC835}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDA484F2-F245-4D81-A9C2-27C02D0FC76E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDA484F2-F245-4D81-A9C2-27C02D0FC76E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDA484F2-F245-4D81-A9C2-27C02D0FC76E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDA484F2-F245-4D81-A9C2-27C02D0FC76E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -54,6 +60,7 @@ Global
 		{589EF549-1A84-46C3-AFDE-7926EF2AEC60} = {86746475-075E-47FF-BB3C-582DFB691A7D}
 		{ADF216B2-AA16-48BD-B568-70056532877F} = {589EF549-1A84-46C3-AFDE-7926EF2AEC60}
 		{BEA09209-B370-418E-84C5-8832632DC835} = {589EF549-1A84-46C3-AFDE-7926EF2AEC60}
+		{CDA484F2-F245-4D81-A9C2-27C02D0FC76E} = {BA1C43E8-37A0-4E5B-A235-FC9649C625DA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {151B0528-B80F-4FA7-AC74-E5934A986340}

@@ -46,13 +46,27 @@ services:
     ports:
       - 56789:80
       - 54321:443
+    links:
+      - redpanda
+    depends_on:
+      - redpanda
 
-  core31.consumers.createemail:
+  core31.consumers.create_email:
     container_name: consumers.create_email
     image: consumers.create_email:core3.1
     build:
       context: .
       dockerfile: Consumers/Emails/Core31.Consumers.CreateEmail/Dockerfile
+    links:
+      - redpanda
+    depends_on:
+      - redpanda
+    networks:
+      - redpanda-network
+    environment:
+      - KafkaServers=redpanda
+      - EmailsConsumerGroup=emails
+      - KafkaTopic=email-create-requested
 
 networks:
   redpanda-network:

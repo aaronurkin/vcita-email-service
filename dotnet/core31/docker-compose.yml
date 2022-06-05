@@ -37,6 +37,34 @@ services:
       - --default-log-level
       - warn
 
+  pgadmin:
+    container_name: db-postgres-ui
+    image: dpage/pgadmin4
+    ports:
+      - "8080:80"
+    volumes:
+      - ./tmp/storage/pgadmin:/root/.pgadmin
+    links:
+      - postgres:postgres
+    depends_on:
+      - postgres
+    env_file:
+      - ".env"
+    networks:
+      - db-network
+
+  postgres:
+    container_name: db-postgres
+    image: postgres:11-alpine
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./tmp/storage/postgres:/var/lib/postgresql/data
+    env_file:
+      - ".env"
+    networks:
+      - db-network
+
   core31.gateway.api:
     container_name: gateway.api
     image: gateway.api:core3.1
@@ -70,4 +98,6 @@ services:
 
 networks:
   redpanda-network:
+      driver: bridge
+  db-network:
       driver: bridge

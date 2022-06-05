@@ -15,11 +15,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Consumers", "Consumers", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Emails", "Emails", "{589EF549-1A84-46C3-AFDE-7926EF2AEC60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core31.Consumers.CreateEmail", "Consumers\Emails\Core31.Consumers.CreateEmail\Core31.Consumers.CreateEmail.csproj", "{ADF216B2-AA16-48BD-B568-70056532877F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core31.Consumers.CreateEmail", "Consumers\Emails\Core31.Consumers.CreateEmail\Core31.Consumers.CreateEmail.csproj", "{ADF216B2-AA16-48BD-B568-70056532877F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core31.Consumers.CreateEmail.Data", "Consumers\Emails\Core31.Consumers.CreateEmail.Data\Core31.Consumers.CreateEmail.Data.csproj", "{BEA09209-B370-418E-84C5-8832632DC835}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core31.Consumers.CreateEmail.Data", "Consumers\Emails\Core31.Consumers.CreateEmail.Data\Core31.Consumers.CreateEmail.Data.csproj", "{BEA09209-B370-418E-84C5-8832632DC835}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core31.Shared.Services", "Shared\Core31.Shared.Services\Core31.Shared.Services.csproj", "{CDA484F2-F245-4D81-A9C2-27C02D0FC76E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core31.Shared.Services", "Shared\Core31.Shared.Services\Core31.Shared.Services.csproj", "{CDA484F2-F245-4D81-A9C2-27C02D0FC76E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core31.Shared.Data", "Shared\Core31.Shared.Data\Core31.Shared.Data.csproj", "{12C3A532-99DF-44C1-8281-27E88798B332}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{CDA484F2-F245-4D81-A9C2-27C02D0FC76E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CDA484F2-F245-4D81-A9C2-27C02D0FC76E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CDA484F2-F245-4D81-A9C2-27C02D0FC76E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12C3A532-99DF-44C1-8281-27E88798B332}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12C3A532-99DF-44C1-8281-27E88798B332}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12C3A532-99DF-44C1-8281-27E88798B332}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12C3A532-99DF-44C1-8281-27E88798B332}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -61,6 +67,7 @@ Global
 		{ADF216B2-AA16-48BD-B568-70056532877F} = {589EF549-1A84-46C3-AFDE-7926EF2AEC60}
 		{BEA09209-B370-418E-84C5-8832632DC835} = {589EF549-1A84-46C3-AFDE-7926EF2AEC60}
 		{CDA484F2-F245-4D81-A9C2-27C02D0FC76E} = {BA1C43E8-37A0-4E5B-A235-FC9649C625DA}
+		{12C3A532-99DF-44C1-8281-27E88798B332} = {BA1C43E8-37A0-4E5B-A235-FC9649C625DA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {151B0528-B80F-4FA7-AC74-E5934A986340}

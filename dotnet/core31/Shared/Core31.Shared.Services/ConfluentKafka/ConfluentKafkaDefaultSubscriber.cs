@@ -1,4 +1,5 @@
 ﻿using Confluent.Kafka;
+using Core31.Shared.Exceptions;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -38,29 +39,22 @@ namespace Core31.Shared.Services
         {
             while (true)
             {
-                var consumeResult = default(ConsumeResult<Ignore, TMessageValue>);
+                var value = this.HandleMessage(cancellationToken);
 
-                try
+                if (value == null)
                 {
-                    consumeResult = this.consumer.Consume(cancellationToken);
-
-                    if (consumeResult.Message?.Value == null)
-                    {
-                        this.consumer.Commit(consumeResult);
-                        continue;
-                    }
-                }
-                catch (ConsumeException exception)
-                {
-                    this.logger.LogWarning(exception, "FAILED consuming a message: {0}", exception.Error.Reason);
-                }
-                catch (OperationCanceledException exception)
-                {
-                    this.logger.LogError(exception, "Operation has been canceled");
-                    this.Dispose();
+                    continue;
                 }
 
-                yield return consumeResult.Message?.Value;
+                yield return value;
+            }
+        }
+
+        public virtual void HandleMessages(CancellationToken cancellationToken, Action<TMessageValue> handleMessage)
+        {
+            while (true)
+            {
+                this.HandleMessage(cancellationToken, handleMessage);
             }
         }
 
@@ -71,6 +65,44 @@ namespace Core31.Shared.Services
                 this.logger.LogDebug("Disposing subscriber...");
                 this.consumer.Close();
             }
+        }
+
+        private TMessageValue HandleMessage(CancellationToken cancellationToken, Action<TMessageValue> handleMessage = null)
+        {
+            var consumeResult = default(ConsumeResult<Ignore, TMessageValue>);
+
+            try
+            {
+                consumeResult = this.consumer.Consume(cancellationToken);
+
+                if (consumeResult.Message?.Value == null)
+                {
+                    this.consumer.Commit(consumeResult);
+                    return default(TMessageValue);
+                }
+
+                handleMessage?.Invoke(consumeResult.Message.Value);
+            }
+            catch (ConsumeException exception)
+            {
+                this.logger.LogWarning(exception, "FAILED consuming a message: {0}", exception.Error.Reason);
+            }
+            catch (HandleMessageException exception)
+            {
+                this.logger.LogWarning(exception, "FAILED handling a message");
+
+                if (consumeResult != null)
+                {
+                    this.consumer.Commit(consumeResult);
+                }
+            }
+            catch (OperationCanceledException exception)
+            {
+                this.logger.LogError(exception, "Operation has been canceled");
+                this.Dispose();
+            }
+
+            return consumeResult.Message?.Value;
         }
     }
 }

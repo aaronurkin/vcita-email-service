@@ -9,5 +9,6 @@ namespace Core31.Shared.Services
     {
         void Subscribe(params string[] topics);
         IEnumerable<TMessageValue> GetMessages(CancellationToken cancellationToken);
+        void HandleMessages(CancellationToken cancellationToken, Action<TMessageValue> handleMessage = null);
     }
 }

@@ -6,6 +6,7 @@ WORKDIR /app
 FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
 WORKDIR /src
 COPY ["Consumers/Emails/Core31.Consumers.CreateEmail/Core31.Consumers.CreateEmail.csproj", "Consumers/Emails/Core31.Consumers.CreateEmail/"]
+COPY ["Consumers/Emails/Core31.Consumers.CreateEmail.Data/Core31.Consumers.CreateEmail.Data.csproj", "Consumers/Emails/Core31.Consumers.CreateEmail.Data/"]
 COPY ["Shared/Core31.Shared.Models/Core31.Shared.Models.csproj", "Shared/Core31.Shared.Models/"]
 RUN dotnet restore "Consumers/Emails/Core31.Consumers.CreateEmail/Core31.Consumers.CreateEmail.csproj"
 COPY . .

@@ -9,6 +9,10 @@
 
   <ItemGroup>
     <PackageReference Include="Confluent.Kafka" Version="1.8.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.25">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.1.25" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.15.1" />
   </ItemGroup>
@@ -16,6 +20,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\Shared\Core31.Shared.Models\Core31.Shared.Models.csproj" />
     <ProjectReference Include="..\..\..\Shared\Core31.Shared.Services\Core31.Shared.Services.csproj" />
+    <ProjectReference Include="..\Core31.Consumers.CreateEmail.Data\Core31.Consumers.CreateEmail.Data.csproj" />
   </ItemGroup>
 
 </Project>

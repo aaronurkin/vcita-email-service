@@ -86,15 +86,19 @@ services:
       context: .
       dockerfile: Consumers/Emails/Core31.Consumers.CreateEmail/Dockerfile
     links:
+      - postgres
       - redpanda
     depends_on:
+      - postgres
       - redpanda
     networks:
+      - db-network
       - redpanda-network
     environment:
       - KafkaServers=redpanda
       - EmailsConsumerGroup=emails
       - KafkaTopic=email-create-requested
+      - ConnectionStrings__EmailsMs=Server=postgres;port=5432;user id=emails_ms;password=postgres_password;database=ms_emails_development;pooling=true
 
 networks:
   redpanda-network:

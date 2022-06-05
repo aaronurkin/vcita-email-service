@@ -1,7 +1,12 @@
 ﻿using Confluent.Kafka;
+using Core31.Consumers.CreateEmail.Data;
+using Core31.Consumers.CreateEmail.Data.EntityFramework;
+using Core31.EventSubscribers.Emails.Data;
+using Core31.EventSubscribers.Emails.Data.EntityFramework;
 using Core31.Shared.Models.Requests;
 using Core31.Shared.Services;
 using Core31.Shared.Services.ConfluentKafka.Deserializers;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -44,6 +49,12 @@ namespace Core31.Consumers.CreateEmail
 
                     services
                         .AddTransient<ISubscriber<CreateEmailRequest>, ConfluentKafkaDefaultSubscriber<CreateEmailRequest>>();
+
+                    services.AddDbContext<EmailsDbContext>(config =>
+                        config.UseNpgsql(context.Configuration.GetConnectionString("EmailsMs")));
+
+                    services
+                        .AddTransient<IEmailsRepository, EntityFrameworkEmailsRepository>();
 
                     services.AddHostedService<CreateEmailRequestHandler>();
                 });

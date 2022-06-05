@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core31.Shared.Services", "S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core31.Shared.Data", "Shared\Core31.Shared.Data\Core31.Shared.Data.csproj", "{12C3A532-99DF-44C1-8281-27E88798B332}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core31.Shared.Exceptions", "Shared\Core31.Shared.Exceptions\Core31.Shared.Exceptions.csproj", "{5227DFB5-D060-4A1D-884E-E526F6745AA3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{12C3A532-99DF-44C1-8281-27E88798B332}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12C3A532-99DF-44C1-8281-27E88798B332}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12C3A532-99DF-44C1-8281-27E88798B332}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5227DFB5-D060-4A1D-884E-E526F6745AA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5227DFB5-D060-4A1D-884E-E526F6745AA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5227DFB5-D060-4A1D-884E-E526F6745AA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5227DFB5-D060-4A1D-884E-E526F6745AA3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -68,6 +74,7 @@ Global
 		{BEA09209-B370-418E-84C5-8832632DC835} = {589EF549-1A84-46C3-AFDE-7926EF2AEC60}
 		{CDA484F2-F245-4D81-A9C2-27C02D0FC76E} = {BA1C43E8-37A0-4E5B-A235-FC9649C625DA}
 		{12C3A532-99DF-44C1-8281-27E88798B332} = {BA1C43E8-37A0-4E5B-A235-FC9649C625DA}
+		{5227DFB5-D060-4A1D-884E-E526F6745AA3} = {BA1C43E8-37A0-4E5B-A235-FC9649C625DA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {151B0528-B80F-4FA7-AC74-E5934A986340}

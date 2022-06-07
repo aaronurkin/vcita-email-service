@@ -43,7 +43,7 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - ./tmp/storage/pgadmin:/root/.pgadmin
+      - ./tmp/pgadmin:/var/lib/pgadmin
     links:
       - postgres:postgres
     depends_on:

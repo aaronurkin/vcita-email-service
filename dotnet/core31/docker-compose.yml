@@ -19,7 +19,7 @@ services:
     networks:
       - redpanda-network
     volumes:
-      - ./tmp/storage/redpanda:/var/lib/redpanda/data
+      - ./tmp/storage/redpanda/vcita-email-service/core31:/var/lib/redpanda/data
     command:
       - redpanda
       - start
@@ -43,7 +43,7 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - ./tmp/pgadmin:/var/lib/pgadmin
+      - ./tmp/pgadmin/vcita-email-service/core31:/var/lib/pgadmin
     links:
       - postgres:postgres
     depends_on:
@@ -59,7 +59,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - ./tmp/storage/postgres:/var/lib/postgresql/data
+      - ./tmp/storage/postgres/vcita-email-service/core31:/var/lib/postgresql/data
     env_file:
       - ".env"
     networks:

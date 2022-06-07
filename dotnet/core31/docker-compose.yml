@@ -78,6 +78,11 @@ services:
       - redpanda
     depends_on:
       - redpanda
+    networks:
+      - redpanda-network
+    environment:
+      - KafkaServers=redpanda
+      - KafkaTopics__CreateEmail=email-create-requested
 
   core31.consumers.create_email:
     container_name: consumers.create_email

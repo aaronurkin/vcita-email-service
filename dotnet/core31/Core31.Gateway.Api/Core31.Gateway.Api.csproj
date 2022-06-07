@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Shared\Core31.Shared.Models\Core31.Shared.Models.csproj" />
+    <ProjectReference Include="..\Shared\Core31.Shared.Services\Core31.Shared.Services.csproj" />
   </ItemGroup>
 
 

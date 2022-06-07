@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   kafdrop:
-    container_name: kafka-ui
+    container_name: UI.QUEUES.redpanda
     image: obsidiandynamics/kafdrop
     ports:
       - "9000:9000"
@@ -14,7 +14,7 @@ services:
       - redpanda-network
 
   redpanda:
-    container_name: kafka-broker
+    container_name: QUEUES.redpanda
     image: docker.vectorized.io/vectorized/redpanda:v21.11.3
     networks:
       - redpanda-network
@@ -38,14 +38,12 @@ services:
       - warn
 
   pgadmin:
-    container_name: db-postgres-ui
+    container_name: UI.DB.postgres
     image: dpage/pgadmin4
     ports:
       - "8080:80"
     volumes:
       - ./tmp/pgadmin/vcita-email-service/core31:/var/lib/pgadmin
-    links:
-      - postgres:postgres
     depends_on:
       - postgres
     env_file:
@@ -54,7 +52,7 @@ services:
       - db-network
 
   postgres:
-    container_name: db-postgres
+    container_name: DB.postgres
     image: postgres:11-alpine
     ports:
       - "5432:5432"

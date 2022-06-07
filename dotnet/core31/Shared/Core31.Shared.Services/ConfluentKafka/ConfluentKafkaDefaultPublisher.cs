@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace Core31.Shared.Services
 {
-    public class ConfluentKafkaPublisher<TMessageValue> : IPublisher<TMessageValue>
+    public class ConfluentKafkaDefaultPublisher<TMessageValue> : IPublisher<TMessageValue>
         where TMessageValue : class
     {
         private readonly ILogger logger;
-        private readonly IProducer<Ignore, TMessageValue> producer;
+        private readonly IProducer<Null, TMessageValue> producer;
 
-        public ConfluentKafkaPublisher(
-            IProducer<Ignore, TMessageValue> producer,
-            ILogger<ConfluentKafkaPublisher<TMessageValue>> logger
+        public ConfluentKafkaDefaultPublisher(
+            IProducer<Null, TMessageValue> producer,
+            ILogger<ConfluentKafkaDefaultPublisher<TMessageValue>> logger
         )
         {
             this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
@@ -25,7 +25,7 @@ namespace Core31.Shared.Services
         {
             try
             {
-                await this.producer.ProduceAsync(topic, new Message<Ignore, TMessageValue> { Value = value });
+                await this.producer.ProduceAsync(topic, new Message<Null, TMessageValue> { Value = value });
             }
             catch (Exception exception)
             {

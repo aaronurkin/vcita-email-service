@@ -42,8 +42,8 @@ namespace Core31.Consumers.CreateEmail
                         });
 
                     services
-                        .AddTransient<IConsumer<Ignore, CreateEmailRequest>>(provider =>
-                            new ConsumerBuilder<Ignore, CreateEmailRequest>(confluentKafkaConsumerConfig)
+                        .AddTransient<IConsumer<Null, CreateEmailRequest>>(provider =>
+                            new ConsumerBuilder<Null, CreateEmailRequest>(confluentKafkaConsumerConfig)
                                 .SetValueDeserializer(new JsonDeserializer<CreateEmailRequest>())
                                 .Build());
 

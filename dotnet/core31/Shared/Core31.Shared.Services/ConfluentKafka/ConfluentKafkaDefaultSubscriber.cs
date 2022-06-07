@@ -11,10 +11,10 @@ namespace Core31.Shared.Services
         where TMessageValue : class
     {
         private readonly ILogger logger;
-        private readonly IConsumer<Ignore, TMessageValue> consumer;
+        private readonly IConsumer<Null, TMessageValue> consumer;
 
         public ConfluentKafkaDefaultSubscriber(
-            IConsumer<Ignore, TMessageValue> consumer,
+            IConsumer<Null, TMessageValue> consumer,
             ILogger<ConfluentKafkaDefaultSubscriber<TMessageValue>> logger
         )
         {
@@ -69,7 +69,7 @@ namespace Core31.Shared.Services
 
         private TMessageValue HandleMessage(CancellationToken cancellationToken, Action<TMessageValue> handleMessage = null)
         {
-            var consumeResult = default(ConsumeResult<Ignore, TMessageValue>);
+            var consumeResult = default(ConsumeResult<Null, TMessageValue>);
 
             try
             {

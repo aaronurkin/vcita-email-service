@@ -36,8 +36,16 @@ namespace Core31.Shared.Data.EntityFramework
 
         public TEntity Insert(TEntity entity)
         {
-            this.context.Set<TEntity>().Add(entity);
-            this.context.SaveChanges();
+            try
+            {
+                this.context.Set<TEntity>().Add(entity);
+                this.context.SaveChanges();
+            }
+            catch (Exception)
+            {
+                this.context.Entry(entity).State = EntityState.Detached;
+                throw;
+            }
 
             return entity;
         }
